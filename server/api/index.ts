@@ -7,8 +7,8 @@ export const config = {
 
 const app = new Hono().basePath("/api");
 
-app.get("/", (c) => {
-  return c.json({ message: "Hello World!" });
+app.get("/list", (c) => {
+  return c.json(["A", "B", "Hello", "World", "Schalk", "C"]);
 });
 
 export default handle(app);
