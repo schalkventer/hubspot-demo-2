@@ -8,15 +8,7 @@ export const config = {
 
 const app = new Hono().basePath("/api");
 
-app.use(
-  "*",
-  cors({
-    origin: "https://hubspot-demo-2-api.vercel.app/api/list",
-    allowMethods: ["GET"],
-    allowHeaders: ["Content-Type", "Authorization"],
-    maxAge: 86400,
-  })
-);
+app.use("*", cors());
 
 app.get("/list", (c) => {
   return c.json(["A", "B", "Hello", "World", "Schalk", "C"]);
